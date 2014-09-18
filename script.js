@@ -3,10 +3,28 @@ var lap;
 var c=0;
 var flg;
 var rep;
+var ar=[25,5,25,5,25,5,25,30];
+
+/*
+function sleeps(g){
+	setTimeout(function(){
+		g.next('I woke up at '+ new Date());
+	},1000);
+}
+
+var g = (function (){
+	console.log(yield sleep(g));	
+	console.log(yield sleep(g));	
+	console.log(yield sleep(g));	
+})();
+
+g.next();
+*/
 
 function start(){
 	total = setInterval("countUp()",1000);
-
+	repeat();
+/*
 	for(;;){
 		if(c>0 && c%5==0){
 			flg=1;
@@ -22,7 +40,45 @@ function start(){
 			sleep(5);
 		}
 		c+=1;
-	}
+	}*/
+}
+
+function repeat(){
+	flg=1;
+	lap=setInterval("countDown(25)",1000);
+	setTimeout(function(){
+	flg=1;
+		lap=setInterval("countDown(5)",1000);
+		setTimeout(function(){
+			flg=1;
+			lap=setInterval("countDown(25)",1000);
+			setTimeout(function(){
+				flg=1;
+				lap=setInterval("countDown(5)",1000);
+				setTimeout(function(){
+					flg=1;
+					lap=setInterval("countDown(25)",1000);
+					setTimeout(function(){
+						flg=1;
+						lap=setInterval("countDown(5)",1000);
+						setTimeout(function(){
+							flg=1;
+							lap=setInterval("countDown(25)",1000);
+							setTimeout(function(){
+								flg=1;
+								lap=setInterval("countDown(25)",1000);
+								setTimeout(function(){
+									repeat();	
+								},1800000)
+							},1500000)		
+						},300000)
+					},1500000)	
+				},30000)	
+			},1500000)	
+		},300000)
+	},1500000);
+
+
 }
 
 function countDown(limit){
