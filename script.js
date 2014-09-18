@@ -2,27 +2,27 @@ var total;
 var lap;
 var c=0;
 var flg;
+var rep;
 
 function start(){
 	total = setInterval("countUp()",1000);
-	repeat();
-	//for(;;){
-	//}
-}
 
-function repeat(){
-	if(c>0 && c%5==0){
-		flg=1;
-		lap = setInterval("countDown(30)",1000);
-	}else if(c%2==0){
-		flg=1;
-		lap = setInterval("countDown(25)",1000);
-	}else if(c%2==1){
-		flg=1;
-		lap = setInterval("countDown(5)",1000);
+	for(;;){
+		if(c>0 && c%5==0){
+			flg=1;
+			lap = setInterval("countDown(30)",1000);
+			sleep(30);
+		}else if(c%2==0){
+			flg=1;
+			lap = setInterval("countDown(25)",1000);
+			sleep(25);
+		}else if(c%2==1){
+			flg=1;
+			lap = setInterval("countDown(5)",1000);
+			sleep(5);
+		}
+		c+=1;
 	}
-	c+=1;
-	repeat();
 }
 
 function countDown(limit){
@@ -92,4 +92,13 @@ function pause(){
 	stop = new Date().getTime();
 	console.log(stop);
 
+}
+
+function sleep(t){
+	//t : minutes
+	var s = new Date().getTime();
+	var g = new Date().getTime();
+	while(d2<d1+60*1000*t)
+		d2=new Date().getTime();
+	return;
 }
