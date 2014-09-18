@@ -5,20 +5,24 @@ var flg;
 
 function start(){
 	total = setInterval("countUp()",1000);
-
+	repeat();
 	//for(;;){
-		if(c>0 && c%5==0){
-			flg=1;
-			lap = setInterval("countDown(30)",1000);
-		}else if(c%2==0){
-			flg=1;
-			lap = setInterval("countDown(25)",1000);
-		}else if(c%2==1){
-			flg=1;
-			lap = setInterval("countDown(5)",1000);
-		}
-		c+=1;
 	//}
+}
+
+function repeat(){
+	if(c>0 && c%5==0){
+		flg=1;
+		lap = setInterval("countDown(30)",1000);
+	}else if(c%2==0){
+		flg=1;
+		lap = setInterval("countDown(25)",1000);
+	}else if(c%2==1){
+		flg=1;
+		lap = setInterval("countDown(5)",1000);
+	}
+	c+=1;
+	repeat();
 }
 
 function countDown(limit){
